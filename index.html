@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          screens: {
+            sm: "480px",
+            md: "768px",
+            lg: "976px",
+            xl: "1440px",
+          },
+          extend: {
+            fontFamily: {
+              poppins: ["Poppins", "sans"],
+            },
+            colors: {
+              offWhite: "hsl(0, 0%, 94%)",
+              offBlack: "hsl(0, 0%, 8%)",
+              newLightGrey: "hsl(0, 0%, 86%)",
+              smokeyGrey: "hsl(0, 1%, 44%)",
+              newPurple: "hsl(259, 100%, 65%)",
+              lightRed: "hsl(0, 100%, 67%)",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Age calculator app</title>
+  </head>
+  <body
+    class="flex flex-col h-screen items-center justify-center bg-offWhite font-poppins"
+  >
+    <!-- Container -->
+    <div>
+      <!-- Inputs container -->
+      <form
+        class="flex flex-col justify-center pl-10 pr-56 py-12 rounded-t-3xl bg-white"
+      >
+        <div class="flex space-x-10">
+          <!-- Day Input -->
+          <div class="flex flex-col text-start w-40">
+            <label
+              for="day"
+              class="error-label mb-2 text-xs tracking-[0.15rem] font-bold text-smokeyGrey"
+              >DAY</label
+            >
+            <input
+              class="border-2 border-lightGrey px-5 py-4 rounded-lg placeholder:font-bold placeholder:text-3xl placeholder:translate-y-1"
+              type="number"
+              id="day"
+              name="Day"
+              placeholder="DD"
+            />
+            <p class="error-text hidden italic text-red-500 pt-3 text-xs">
+              Must be a valid day
+            </p>
+          </div>
+
+          <!-- Month input -->
+          <div class="flex flex-col text-start w-40">
+            <label
+              for="month"
+              class="error-label mb-2 text-xs tracking-[0.15rem] font-bold text-smokeyGrey"
+              >MONTH</label
+            >
+            <input
+              class="border-2 border-lightGrey px-5 py-4 rounded-lg placeholder:font-bold placeholder:text-3xl placeholder:translate-y-1"
+              type="number"
+              id="month"
+              placeholder="MM"
+            />
+            <p class="error-text hidden italic text-red-500 pt-3 text-xs">
+              Must be a valid month
+            </p>
+          </div>
+
+          <!-- Year Input -->
+          <div class="flex flex-col text-start w-40">
+            <label
+              for="year"
+              class="error-label mb-2 text-xs tracking-[0.15rem] font-bold text-smokeyGrey"
+              >YEAR</label
+            >
+            <input
+              class="border-2 border-lightGrey px-5 py-4 rounded-lg placeholder:font-bold placeholder:text-3xl placeholder:translate-y-1"
+              type="number"
+              id="year"
+              placeholder="YYYY"
+            />
+            <p class="error-text hidden italic text-red-500 pt-3 text-xs">
+              Must be in the past
+            </p>
+          </div>
+        </div>
+
+        <!-- Button Container -->
+        <div
+          class="relative mt-10 border-b-2 border-lightGrey flex items-center w-[135%] bg-blue-300"
+        >
+          <!-- Button -->
+          <button
+            id="btn"
+            type="submit"
+            class="absolute right-0 w-18 h-18 p-4 bg-newPurple rounded-full"
+          >
+            <img src="assets\images\icon-arrow.svg" />
+          </button>
+        </div>
+      </form>
+
+      <!-- Results -->
+      <div
+        class="bg-white space-y-2 pl-10 pr-56 pb-14 rounded-bl-3xl rounded-br-[10rem]"
+      >
+        <p class="text-7xl font-extrabold italic text-start">
+          <span id="yDisplay" class="text-newPurple">--</span> years
+        </p>
+        <p class="text-7xl font-extrabold italic text-start">
+          <span id="mDisplay" class="text-newPurple">--</span> months
+        </p>
+        <p class="text-7xl font-extrabold italic text-start">
+          <span id="dDisplay" class="text-newPurple">--</span> days
+        </p>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
